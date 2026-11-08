@@ -1,0 +1,25 @@
+@baseurl = http://localhost:8080
+@shortCode = nomlnCLe
+@deleteShortCode = TW01sslp
+
+### Create short code
+POST {{baseurl}}/urls
+Content-Type: application/json
+Accept: application/json
+
+{
+    "url": "https://windows11.com",
+    "expires_in": 300
+}
+
+### Get original code from short code
+GET {{baseurl}}/{{shortCode}}
+Accept: application/json
+
+### Delete short code
+DELETE {{baseurl}}/urls/{{deleteShortCode}}
+Accept: application/json
+
+### Get click count of a short code
+GET {{baseurl}}/urls/{{shortCode}}/stats
+Accept: application/json
